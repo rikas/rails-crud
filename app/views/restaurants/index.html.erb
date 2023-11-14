@@ -1,0 +1,13 @@
+<h2>List of restaurants</h2>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %> (<%= restaurant.id %>)
+      <%= link_to 'DESTROY!', delete_restaurant_path(restaurant), data: {
+        turbo_method: 'delete',
+        turbo_confirm: 'Are you sure?'
+      } %>
+    </li>
+  <% end %>
+</ul>
